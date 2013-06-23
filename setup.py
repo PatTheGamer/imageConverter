@@ -12,16 +12,7 @@ import os
 
 MyData_files=[]
 
-MyData_files = [('icons', ['C:\\Users\\ryan\\logging\\imageConvert\\icons\\check_32.png','C:\\Users\\ryan\\logging\\imageConvert\\icons\\directory.png','C:\\Users\\ryan\\logging\\imageConvert\\icons\\text_directory.png'])]
+MyData_files = [('icons', ['icons/check_32.png','icons/directory.png','icons/text_directory.png'])]
 print str(MyData_files)
 
-setup(
-      windows=['ImageConverter.py'], 
-      data_files = MyData_files,
-      options={
-                    "py2exe":{
-                              "unbuffered": True,
-                              "optimize": 2
-                              }
-               }
-      )
+setup(windows=['ImageConverter.py'], data_files = MyData_files, options={"py2exe":{"unbuffered": True, "optimize": 2}})
