@@ -5,14 +5,13 @@ Created on Jan 21, 2012
 '''
 
 from distutils.core import setup
+import sys
 
-import py2exe
+if sys.platform == 'win32':
+    import py2exe
+    data_files = [('icons', ['icons\\check_32.png', 'icons\\directory.png', 'icons\\text_directory.png'])]
+    setup(windows=['ImageConverter.py'], author='Ryan Moore', data_files=data_files, options={"py2exe": {"unbuffered": True, "optimize": 2}})
 
-import os
-
-MyData_files=[]
-
-MyData_files = [('icons', ['icons/check_32.png','icons/directory.png','icons/text_directory.png'])]
-print str(MyData_files)
-
-setup(windows=['ImageConverter.py'], data_files = MyData_files, options={"py2exe":{"unbuffered": True, "optimize": 2}})
+else:
+    data_files = [('icons', ['icons/check_32.png', 'icons/directory.png', 'icons/text_directory.png'])]
+    setup(name='ImageConverter', author='Ryan Moore', data_files=data_files)
